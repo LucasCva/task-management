@@ -37,8 +37,13 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-//    public TaskDTO editTask(TaskDTO taskDTO, long id) {
-//        Task task = taskRepository.getReferenceById(
-//    }
+    public TaskDTO editTask(TaskDTO taskDTO, long id) {
+        Task task = taskRepository.getReferenceById(id);
+        if (taskDTO.getTitle().isEmpty()) task.setTitle(taskDTO.getTitle());
+        if (taskDTO.getDescription().isEmpty()) task.setDescription(taskDTO.getDescription());
+        if (taskDTO.getStatus().isEmpty()) task.setStatus(taskDTO.getStatus());
+
+        return new TaskDTO(taskRepository.save(task));
+    }
 
 }
