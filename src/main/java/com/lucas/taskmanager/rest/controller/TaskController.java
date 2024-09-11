@@ -27,6 +27,7 @@ public class TaskController {
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
+    // This method is responsable to add some Task in database. By: Paulo
     @PostMapping
     public ResponseEntity<TaskDTO> addTask(@RequestBody TaskDTO taskDTO) {
         taskService.addTask(taskDTO);
