@@ -39,8 +39,9 @@ public class TaskController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-//    @PutMapping("{id}")
-//    public ResponseEntity<TaskDTO> updateTask(@RequestBody TaskDTO taskDTO, @PathVariable long id){
-//        taskService.
-//    }
+    @PutMapping("{id}")
+    public ResponseEntity<TaskDTO> updateTask(@RequestBody TaskDTO taskDTO,
+                                              @PathVariable Long id){
+        return ResponseEntity.ok(taskService.editTask(taskDTO, id));
+    }
 }
